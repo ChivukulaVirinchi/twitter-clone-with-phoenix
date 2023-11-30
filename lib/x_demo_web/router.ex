@@ -20,7 +20,6 @@ defmodule XDemoWeb.Router do
   scope "/", XDemoWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
   end
 
   # Other scopes may use custom stacks.
@@ -84,10 +83,9 @@ defmodule XDemoWeb.Router do
       live "/users/confirm/:token", UserConfirmationLive, :edit
       live "/users/confirm", UserConfirmationInstructionsLive, :new
 
-      live "/posts", PostLive.Index, :index
+      live "/", PostLive.Index, :index
 
       live "/posts/:id", PostLive.Show, :show
-      # live "/posts/:id/show/edit", PostLive.Show, :edit
     end
   end
 end
