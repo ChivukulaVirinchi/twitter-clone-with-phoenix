@@ -32,7 +32,7 @@ defmodule XDemoWeb.PostLive.FormComponent do
         phx-submit="save"
       >
         <.input field={@form[:body]} type="text" label="Body" />
-        <div class="hint">
+        <div>
             Add up to <%= @uploads.photos.max_entries %> photos
             (max <%= trunc(@uploads.photos.max_file_size / 1_000_000) %> MB each )
           </div>
@@ -48,7 +48,7 @@ defmodule XDemoWeb.PostLive.FormComponent do
           <div :for={entry <- @uploads.photos.entries} class="entry">
             <.live_img_preview entry={entry} />
 
-            <div class="">
+            <div>
               <div><%= entry.progress %>%</div>
               <div>
                 <span style={"width: #{entry.progress}%; background-color: #19bff0;"}></span>
